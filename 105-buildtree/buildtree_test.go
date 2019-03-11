@@ -1,4 +1,4 @@
-package _05_buildtree
+package buildtree
 
 import (
 	"testing"

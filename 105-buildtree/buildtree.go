@@ -1,4 +1,4 @@
-package _05_buildtree
+package buildtree
 
 /*
  * @lc app=leetcode id=105 lang=golang
