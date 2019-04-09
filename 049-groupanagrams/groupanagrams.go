@@ -1,8 +1,6 @@
 package groupanagrams
 
-import (
-	"sort"
-)
+import "sort"
 
 /*
  * @lc app=leetcode id=49 lang=golang
@@ -38,7 +36,6 @@ import (
  *
  *
  */
-
 func groupAnagrams(strs []string) [][]string {
 	ans := make(map[string]int)
 	var answer [][]string
