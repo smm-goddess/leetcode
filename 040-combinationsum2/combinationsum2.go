@@ -22,7 +22,7 @@ A solution set is:
   [1, 1, 6]
 ]
 Example 2:
- 
+
 Input: candidates = [2,5,2,1,2], target = 5,
 A solution set is:
 [
@@ -31,22 +31,22 @@ A solution set is:
 ]
 */
 func combinationSum2(candidates []int, target int) [][]int {
-  sort.Ints(candidates)
-  retVal := make([][]int, 0, 16)
-  combinationSumIter(candidates, target, []int{}, &retVal)
-  return retVal
+	sort.Ints(candidates)
+	retVal := make([][]int, 0, 16)
+	combinationSumIter(candidates, target, []int{}, &retVal)
+	return retVal
 }
 
-func combinationSumIter(candidates []int, target int, alreadyIn []int, retVal *[][]int){
-  if target == 0 {
-    *retVal = append(*retVal, append([]int{}, alreadyIn...))
-    return
-  } else if target > 0 && len(candidates) > 0 {
-    combinationSumIter(candidates[1:], target-candidates[0], append(alreadyIn, candidates[0]), retVal)
-    sameIndex := 1
-    for sameIndex < len(candidates) && candidates[sameIndex] == candidates[sameIndex-1]{
-      sameIndex ++
-    }
-    combinationSumIter(candidates[sameIndex:], target, alreadyIn, retVal)
-  }
+func combinationSumIter(candidates []int, target int, alreadyIn []int, retVal *[][]int) {
+	if target == 0 {
+		*retVal = append(*retVal, append([]int{}, alreadyIn...))
+		return
+	} else if target > 0 && len(candidates) > 0 {
+		combinationSumIter(candidates[1:], target-candidates[0], append(alreadyIn, candidates[0]), retVal)
+		sameIndex := 1
+		for sameIndex < len(candidates) && candidates[sameIndex] == candidates[sameIndex-1] {
+			sameIndex++
+		}
+		combinationSumIter(candidates[sameIndex:], target, alreadyIn, retVal)
+	}
 }
