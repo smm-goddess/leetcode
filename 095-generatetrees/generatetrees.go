@@ -51,34 +51,13 @@ func generateTrees(n int) []*TreeNode {
 	if n == 0 {
 		return nil
 	}
-	permutations := generatePermutation(n)
+	permutations := generateUniqPermutation(n)
 	var trees []*TreeNode
 	for _, permutation := range permutations {
 		t := permutationToTree(permutation)
-		newTree := true
-		for _, tree := range trees {
-			if treeEquals(t, tree) {
-				newTree = false
-				break
-			}
-		}
-		if newTree {
-			trees = append(trees, t)
-		}
+		trees = append(trees, t)
 	}
 	return trees
-}
-
-func treeEquals(t1, t2 *TreeNode) bool {
-	if t1 == nil && t2 == nil {
-		return true
-	} else if t1 == nil || t2 == nil {
-		return false
-	} else if t1.Val == t2.Val {
-		return treeEquals(t1.Left, t2.Left) && treeEquals(t1.Right, t2.Right)
-	} else {
-		return false
-	}
 }
 
 func permutationToTree(permutation []int) *TreeNode {
@@ -102,6 +81,67 @@ func addTreeNode(tree *TreeNode, n int) {
 		} else {
 			addTreeNode(tree.Right, n)
 		}
+	}
+}
+
+var permutationMap = make(map[int][][]int)
+
+func generateUniqPermutation(n int) [][]int {
+	if n == 0 {
+		return [][]int{}
+	} else if n == 1 {
+		return [][]int{{1}}
+	} else if n == 2 {
+		return [][]int{{2, 1}, {1, 2}}
+	} else {
+		var permutations [][]int
+		for k := 1; k <= n; k++ {
+			var before, after [][]int
+			if v, ok := permutationMap[k-1]; ok {
+				before = v
+			} else {
+				before = generateUniqPermutation(k - 1)
+			}
+			if v, ok := permutationMap[n-k]; ok {
+				after = v
+			} else {
+				after = generateUniqPermutation(n - k)
+			}
+			if len(before) == 0 {
+				for _, v := range after {
+					for ai := range v {
+						v[ai] = v[ai] + k
+					}
+					permutations = append(permutations, append([]int{k}, v...))
+				}
+			} else if len(after) == 0 {
+				for _, v := range before {
+					permutations = append(permutations, append([]int{k}, v...))
+				}
+			} else {
+				for _, v := range after {
+					for ai := range v {
+						v[ai] = v[ai] + k
+					}
+					for _, be := range before {
+						permutations = append(permutations, append(append([]int{k}, be...), v...))
+					}
+				}
+			}
+		}
+		return permutations
+	}
+}
+
+func treeEquals(t1, t2 *TreeNode) bool {
+	if t1 == nil && t2 == nil {
+		return true
+	} else if t1 == nil || t2 == nil {
+		return false
+	} else if t1.Val == t2.Val {
+		return treeEquals(t1.Left, t2.Left) && treeEquals(t1.Right, t2.Right)
+	} else {
+		return false
 	}
 }
 
