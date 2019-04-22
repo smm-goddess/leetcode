@@ -54,19 +54,19 @@ package pathsum
  */
 func pathSum(root *TreeNode, sum int) [][]int {
 	var result [][]int
-	sumIter(root, []int{},0, sum, &result)
+	sumIter(root, []int{}, 0, sum, &result)
 	return result
 }
 
 func sumIter(root *TreeNode, alreadyIn []int, sum, target int, result *[][]int) {
 	if root != nil {
 		alreadyIn = append(alreadyIn, root.Val)
-    sum = sum + root.Val
+		sum = sum + root.Val
 		if root.Left == nil && root.Right == nil {
-       if sum == target{ 
+			if sum == target {
 				*result = append(*result, append([]int{}, alreadyIn...))
-	    	} 
-    }else {
+			}
+		} else {
 			sumIter(root.Left, alreadyIn, sum, target, result)
 			sumIter(root.Right, alreadyIn, sum, target, result)
 		}
