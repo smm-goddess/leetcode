@@ -1,4 +1,4 @@
-//package ladderlength
+package ladderlength
 
 //import "fmt"
 
