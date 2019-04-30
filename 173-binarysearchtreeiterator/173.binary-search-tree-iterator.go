@@ -60,45 +60,78 @@ package binarysearchtreeiterator
  *     Right *TreeNode
  * }
  */
+
 type BSTIterator struct {
-	flatedBST *TreeNode
+	stack []*TreeNode
 }
 
 func Constructor(root *TreeNode) BSTIterator {
-	return BSTIterator{flatBST(root)}
+	var stack []*TreeNode
+	for root != nil {
+		stack = append(stack, root)
+		root = root.Left
+	}
+	return BSTIterator{stack}
 }
 
 /** @return the next smallest number */
 func (this *BSTIterator) Next() int {
-	node := this.flatedBST
-	this.flatedBST = this.flatedBST.Right
-	node.Right = nil
+	node := this.stack[len(this.stack)-1]
+	this.stack = this.stack[:len(this.stack)-1]
+	if node.Right != nil {
+		root := node.Right
+		for root != nil {
+			this.stack = append(this.stack, root)
+			root = root.Left
+		}
+	}
 	return node.Val
 }
 
 /** @return whether we have a next smallest number */
 func (this *BSTIterator) HasNext() bool {
-	return this.flatedBST != nil
+	return this.stack != nil && len(this.stack) > 0
 }
 
-func flatBST(root *TreeNode) *TreeNode {
-	if root == nil {
-		return nil
-	}
-	leftFlat, rightFlat := flatBST(root.Left), flatBST(root.Right)
-	root.Left = nil
-	root.Right = rightFlat
-	if leftFlat == nil {
-		return root
-	} else {
-		rightFlat = leftFlat
-		for rightFlat.Right != nil {
-			rightFlat = rightFlat.Right
-		}
-		rightFlat.Right = root
-		return leftFlat
-	}
-}
+//type BSTIterator struct {
+//	flatedBST *TreeNode
+//}
+//
+//func Constructor(root *TreeNode) BSTIterator {
+//	return BSTIterator{flatBST(root)}
+//}
+//
+///** @return the next smallest number */
+//func (this *BSTIterator) Next() int {
+//	node := this.flatedBST
+//	this.flatedBST = this.flatedBST.Right
+//	node.Right = nil
+//	return node.Val
+//}
+//
+///** @return whether we have a next smallest number */
+//func (this *BSTIterator) HasNext() bool {
+//	return this.flatedBST != nil
+//}
+//
+//func flatBST(root *TreeNode) *TreeNode {
+//	if root == nil {
+//		return nil
+//	}
+//	leftFlat, rightFlat := flatBST(root.Left), flatBST(root.Right)
+//	root.Left = nil
+//	root.Right = rightFlat
+//	if leftFlat == nil {
+//		return root
+//	} else {
+//		rightFlat = leftFlat
+//		for rightFlat.Right != nil {
+//			rightFlat = rightFlat.Right
+//		}
+//		rightFlat.Right = root
+//		return leftFlat
+//	}
+//}
 
 /**
  * Your BSTIterator object will be instantiated and called as such:

@@ -9,5 +9,5 @@ type TreeNode struct {
 }
 
 func (node *TreeNode) String() string {
-	return fmt.Sprintf("%d --> %s", node.Val, node.Right)
+	return fmt.Sprintf("%d", node.Val)
 }
