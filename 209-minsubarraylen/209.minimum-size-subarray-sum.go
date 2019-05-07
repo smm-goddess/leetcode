@@ -1,5 +1,7 @@
 package minsubarraylen
 
+import "math"
+
 /*
  * @lc app=leetcode id=209 lang=golang
  *
@@ -31,23 +33,46 @@ package minsubarraylen
  * which the time complexity is O(n log n). 
  * 
  */
+//func minSubArrayLen(s int, nums []int) int {
+//	minLen, sum, j := 0, 0, 0
+//	for i := 0; i < len(nums); i++ {
+//		sum, j = nums[i], i+1
+//		if sum >= s {
+//			return 1
+//		}
+//		for sum < s && j < len(nums) {
+//			if minLen > 0 && j-i >= minLen {
+//				break
+//			}
+//			sum += nums[j]
+//			j++
+//			if sum >= s {
+//				minLen = j - i
+//			}
+//		}
+//	}
+//	return minLen
+//}
+
 func minSubArrayLen(s int, nums []int) int {
-	minLen, sum, j := 0, 0, 0
-	for i := 0; i < len(nums); i++ {
-		sum, j = nums[i], i+1
-		if sum >= s {
-			return 1
-		}
-		for sum < s && j < len(nums) {
-			if minLen > 0 && j-i >= minLen {
-				break
+	if nums == nil || len(nums) == 0 {
+		return 0
+	}
+	i, j, sum, min := 0, 0, 0, math.MaxInt32
+	for j < len(nums) {
+		sum = sum + nums[j]
+		j++
+		for sum >= s {
+			if j-i < min {
+				min = j - i
 			}
-			sum += nums[j]
-			j++
-			if sum >= s {
-				minLen = j - i
-			}
+			sum -= nums[i]
+			i++
 		}
 	}
-	return minLen
+	if min == math.MaxInt32 {
+		return 0
+	} else {
+		return min
+	}
 }
