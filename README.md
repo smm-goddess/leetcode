@@ -1,3 +1,3 @@
 # leetcode
 
-[Leetcode](https://leetcode.com/) problem solve by golang
+[Leetcode](https://leetcode.com/) problems solved by golang
