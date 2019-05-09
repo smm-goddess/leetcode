@@ -45,6 +45,7 @@ package containsnearbyalmostduplicate
  *
  *
  */
+// brutal force
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	if nums == nil || len(nums) == 0 || k <= 0 || t < 0 {
 		return false
