@@ -44,13 +44,9 @@ package countnode
  * }
  */
 func countNodes(root *TreeNode) int {
-	if root == nil {
-		return 0
-	} else {
-		cnt := 0
-		count(root, &cnt)
-		return cnt
-	}
+	cnt := 0
+	count(root, &cnt)
+	return cnt
 }
 func count(root *TreeNode, cnt *int) {
 	if root == nil {
