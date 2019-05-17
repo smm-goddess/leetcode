@@ -188,8 +188,7 @@
 [ 554] Brick Wall 
 [ 553] Optimal Division 
 [ 547] Friend Circles 
-[ 542] 01 Matrix
-[ 540] Single Element in a Sorted Array 
+[ 540] Single Element in a Sorted Array
 [ 539] Minimum Time Difference
 [ 537] Complex Number Multiplication
 [ 535] Encode and Decode TinyURL
@@ -281,15 +280,13 @@
 [ 324] Wiggle Sort II 
 [ 319] Bulb Switcher
 [ 318] Maximum Product of Word Lengths
-[ 313] Super Ugly Number
-[ 310] Minimum Height Trees 
+[ 310] Minimum Height Trees
 [ 309] Best Time to Buy and Sell Stock with Cooldown
 [ 307] Range Sum Query - Mutable
 [ 306] Additive Number
 [ 304] Range Sum Query 2D - Immutable 
 [ 300] Longest Increasing Subsequence 
 [ 299] Bulls and Cows 
-[ 289] Game of Life 
 [ 287] Find the Duplicate Number
 [ 284] Peeking Iterator 
 [ 275] H-Index II 
