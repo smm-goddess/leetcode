@@ -1,4 +1,4 @@
-//package singlenumber
+package singlenumber
 
 /*
  * @lc app=leetcode id=137 lang=golang
