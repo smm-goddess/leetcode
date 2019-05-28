@@ -273,12 +273,9 @@
 [ 341] Flatten Nested List Iterator 
 [ 338] Counting Bits
 [ 337] House Robber III 
-[ 334] Increasing Triplet Subsequence 
-[ 332] Reconstruct Itinerary
-[ 331] Verify Preorder Serialization of a Binary Tree 
-[ 328] Odd Even Linked List
 
-[ 324] Wiggle Sort II 
+[ 332] Reconstruct Itinerary
+[ 324] Wiggle Sort II
 [ 319] Bulb Switcher
 [ 284] Peeking Iterator
 [ 275] H-Index II 
