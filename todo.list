@@ -268,12 +268,9 @@
 [ 365] Water and Jug Problem
 [ 357] Count Numbers with Unique Digits 
 [ 355] Design Twitter 
-[ 347] Top K Frequent Elements
-[ 343] Integer Break
-[ 341] Flatten Nested List Iterator 
-[ 338] Counting Bits
-[ 337] House Robber III 
 
+[ 341] Flatten Nested List Iterator 
+[ 337] House Robber III
 [ 332] Reconstruct Itinerary
 [ 324] Wiggle Sort II
 [ 319] Bulb Switcher
