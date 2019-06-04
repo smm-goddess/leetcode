@@ -255,16 +255,14 @@
 [ 388] Longest Absolute File Path 
 [ 386] Lexicographical Numbers
 [ 385] Mini Parser
-[ 384] Shuffle an Array 
+[ 384] Shuffle an Array
 [ 382] Linked List Random Node
-[ 380] Insert Delete GetRandom O(1) 
-[ 378] Kth Smallest Element in a Sorted Matrix
-[ 377] Combination Sum IV 
+[ 380] Insert Delete GetRandom O(1)
+[ 377] Combination Sum IV
 [ 376] Wiggle Subsequence 
 [ 375] Guess Number Higher or Lower II
 [ 355] Design Twitter
-
-[ 341] Flatten Nested List Iterator 
+[ 341] Flatten Nested List Iterator
 [ 337] House Robber III
 [ 332] Reconstruct Itinerary
 [ 324] Wiggle Sort II
