@@ -1,4 +1,4 @@
-//package reverse_linked_list
+package reverse_linked_list
 
 /*
  * @lc app=leetcode id=206 lang=golang
