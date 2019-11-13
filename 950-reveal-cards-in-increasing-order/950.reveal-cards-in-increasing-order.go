@@ -1,9 +1,9 @@
-//package deck_revealed_increasing
-//
-//import (
-//	"fmt"
-//	"sort"
-//)
+package deck_revealed_increasing
+
+import (
+	"fmt"
+	"sort"
+)
 
 /*
  * @lc app=leetcode id=950 lang=golang
