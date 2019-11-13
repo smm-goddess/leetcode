@@ -59,7 +59,7 @@ func fizzBuzz(n int) []string {
 		} else if i%3 == 0 {
 			ans[i-1] = "Fizz"
 		} else {
-			ans[i-1] = strconv.FormatInt(int64(n), 10)
+			ans[i-1] = strconv.FormatInt(int64(i), 10)
 		}
 	}
 	return ans
